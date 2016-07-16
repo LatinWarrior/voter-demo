@@ -8,7 +8,7 @@ angular.module('app').factory('auth', function($q, $http, currentIdentity) {
         dfd.resolve();
       }, function(response) {
         dfd.reject("Invalid Credentials");
-      })
+      });
       return dfd.promise;
     },
     logout: function() {
@@ -18,18 +18,19 @@ angular.module('app').factory('auth', function($q, $http, currentIdentity) {
         dfd.resolve();
       }, function(response) {
         dfd.reject("Error Logging Out");
-      })
+      });
       return dfd.promise;
     },
     
     waitForAuth: function() {
       var dfd = $q.defer();
+      debugger;
       $http.get('/api/currentIdentity').then(function(response) {
         if(!!response.data) {
           currentIdentity.setUser(response.data);
         }
         dfd.resolve(currentIdentity);
-      })
+      });
       return dfd.promise;
     },
     
@@ -53,4 +54,4 @@ angular.module('app').factory('auth', function($q, $http, currentIdentity) {
       })
     }
   }
-})
+});

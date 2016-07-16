@@ -8,7 +8,7 @@ angular.module('app').factory('parseNames', function() {
         firstName: pieces[1],
         lastName: pieces[2]
       }
-    })
+    });
     return lines;
   }
-})
+});

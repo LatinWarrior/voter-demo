@@ -1,5 +1,9 @@
-angular.module('app').controller('logoutCtrl', function($location, auth) {
+angular
+    .module('app')
+    .controller('logoutCtrl',
+        ['$state', 'auth', function($state, auth) {
   auth.logout();
   
-  $location.path('/login');
-})
+  //$location.path('/login');
+  $state.go('login');
+}]);

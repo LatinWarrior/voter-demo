@@ -1,5 +1,6 @@
 
-app.config(function($routeProvider) {
+app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', function($stateProvider, $urlRouterProvider, $locationProvider) {
+
   var routeResolvers = {
     loggedIn: function(auth) {
       return auth.requireLogin();
@@ -26,17 +27,23 @@ app.config(function($routeProvider) {
       });
     }
     
-  }
-  
-  $routeProvider
-    .when('/admin/login', {
+  };
+
+    $locationProvider.html5Mode(true);
+
+  $urlRouterProvider.otherwise("home");
+
+  $stateProvider
+    .state('adminLogin', {
+      url: '/admin/login',
       controller: 'adminLoginCtrl',
       templateUrl: 'admin/adminLogin.html',
       resolve: {
         currentAuth: routeResolvers.waitForAuth
       }
     })
-    .when('/admin/results', {
+    .state('results', {
+      url: '/admin/results',
       controller: 'resultsCtrl',
       templateUrl: 'admin/results.html',
       controllerAs: 'vm',
@@ -45,7 +52,11 @@ app.config(function($routeProvider) {
         allSessions: routeResolvers.allSessions
       }
     })
-    .when('/admin/users/:id', {
+    .state('user', {
+      url: '/admin/users/:id',
+        params: {
+          id: null
+        },
       controller: 'userDetailsCtrl',
       templateUrl: 'admin/userDetails.html',
       controllerAs: 'vm',
@@ -54,7 +65,8 @@ app.config(function($routeProvider) {
         allUsers: routeResolvers.allUsers
       }
     })
-    .when('/users', {
+    .state('users', {
+      url: '/users',
       controller: 'userListCtrl',
       templateUrl: 'admin/userlist.html',
       controllerAs: 'vm',
@@ -63,7 +75,8 @@ app.config(function($routeProvider) {
         allUsers: routeResolvers.allUsers
       }
     })
-    .when('/admin/createusers', {
+    .state('adminCreateUsers', {
+      url: '/admin/createusers',
       controller: 'createUsersCtrl',
       templateUrl: 'admin/createUsers.html',
       controllerAs: 'vm',
@@ -71,7 +84,8 @@ app.config(function($routeProvider) {
         admin: routeResolvers.requireAdmin
       }
     })
-    .when('/home', {
+    .state('home', {
+      url: '/',
       controller: 'homeCtrl',
       templateUrl: 'home/home.html',
       controllerAs: 'vm',
@@ -80,7 +94,8 @@ app.config(function($routeProvider) {
         userSessions: routeResolvers.userSessions
       }
     })
-    .when('/profile', {
+    .state('profile', {
+      url: '/profile',
       controller: 'profileCtrl',
       templateUrl: 'profile/profile.html',
       controllerAs: 'vm',
@@ -88,7 +103,8 @@ app.config(function($routeProvider) {
         userProfile: routeResolvers.loggedIn,
       }
     })
-    .when('/createsession', {
+    .state('createSession', {
+      url: '/createsession',
       controller: 'createNewSessionCtrl',
       templateUrl: 'home/createNewSession.html',
       controllerAs: 'vm',
@@ -96,7 +112,8 @@ app.config(function($routeProvider) {
         userSessions: routeResolvers.userSessions,
       }
     })
-    .when('/login', {
+    .state('login', {
+      url: '/login',
       controller: 'loginCtrl',
       templateUrl: 'security/login.html',
       controllerAs: 'vm',
@@ -104,10 +121,10 @@ app.config(function($routeProvider) {
         currentAuth: routeResolvers.waitForAuth
       }
     })
-    .when('/logout', {
+    .state('logout', {
+      url: '/logout',
       controller: 'logoutCtrl',
       controllerAs: 'vm',
       template: '<logout></logout>'
-    })
-    .otherwise('/home')
-})
+    });
+}]);

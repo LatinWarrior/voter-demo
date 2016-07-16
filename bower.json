@@ -1,0 +1,37 @@
+{
+  "name": "lightning-voter-demo",
+  "description": "lightning talk voting app",
+  "main": "app.js",
+  "authors": [
+    "Joe Eames",
+    "Luis Blanco"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "Angular",
+    "1.5",
+    "Components",
+    "Migration",
+    "to",
+    "Angular",
+    "2"
+  ],
+  "homepage": "https://github.com/LatinWarrior/voter-demo",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "public/vendor"
+  ],
+  "dependencies": {
+    "angular": "^1.5.7",
+    "angular-ui-router": "^0.3.1",
+    "angular-mocks": "^1.5.7",
+    "toastr": "^2.1.2",
+    "bootstrap": "^3.3.6",
+    "jquery": "^3.1.0"
+  }
+}

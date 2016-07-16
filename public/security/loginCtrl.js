@@ -1,8 +1,10 @@
 angular.module('app').controller('loginCtrl', 
-    function($location, currentIdentity, auth, toastr) {
+    ['$state', 'currentIdentity', 'auth',
+      function($state, currentIdentity, auth) {
       
   if(currentIdentity.authenticated()) {
-    $location.path('/home');
+    //$location.path('/home');
+    $state.go('home');
   }
   
   this.login = function() {
@@ -10,9 +12,10 @@ angular.module('app').controller('loginCtrl',
       username: this.email,
       password: "pass"
     }).then(function() {
-      $location.path('/home');
+      //$location.path('/home');
+      $state.go('home');
     }, function(err) {
       toastr.error(err);
     })
   }
-})
+}]);

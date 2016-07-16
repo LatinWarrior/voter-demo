@@ -1,9 +1,11 @@
 angular.module('app').controller('adminLoginCtrl', 
-    function($location, currentIdentity, auth, toastr, $scope) {
+    ['$state', 'currentIdentity', 'auth', '$scope',
+        function($state, currentIdentity, auth, $scope) {
   
   $scope.loggedIn = currentIdentity.authenticated();
   if($scope.loggedIn) {
-    $location.path('/home');
+    //$location.path('/home');
+    $state.go('home');
   }
   
   $scope.login = function() {
@@ -11,9 +13,10 @@ angular.module('app').controller('adminLoginCtrl',
       username: $scope.email,
       password: $scope.password
     }).then(function() {
-      $location.path('/home');
+      //$location.path('/home');
+      $state.go('home');
     }, function(err) {
       toastr.error(err);
     })
   }
-})
+}]);

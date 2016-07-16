@@ -10,4 +10,4 @@ angular.module('app').directive('sessionDetailWithVotes', function() {
     controller: function() {
     }
   }
-})
+});

@@ -5,4 +5,4 @@
   
   toastrModule.value('toastr', toastr);
   
-}())
+}());
