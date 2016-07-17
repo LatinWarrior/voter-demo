@@ -6,15 +6,19 @@ angular.module('app').directive('unreviewedTalk', function() {
       voteYes: '&',
       voteNo: '&'
     },
-    controller: function($scope) {
-      
-      $scope.yes = function() {
+    controllerAs: '$ctrl',
+    bindToController: true, // Implement controllerAs in the directive.
+    controller: function() { // Remove scope.
+
+        var $ctrl = this;
+
+        $ctrl.yes = function() {
         this.voteYes();
-      }
-      
-      $scope.no = function() {
+      };
+
+        $ctrl.no = function() {
         this.voteNo();
       }
     }
   }
-})
+});
