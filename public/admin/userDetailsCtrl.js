@@ -1,7 +1,7 @@
 angular.module('app').controller('userDetailsCtrl', 
-      function(allUsers, $routeParams) {
+      function(allUsers, $stateParams) {
   
   this.user = allUsers.find(function(user) {
-    return user.id === parseInt($routeParams.id);
+    return user.id === parseInt($stateParams.id);
   })
-})
+});
