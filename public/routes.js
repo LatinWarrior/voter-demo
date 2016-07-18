@@ -45,9 +45,10 @@ app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', functio
         })
         .state('results', {
             url: '/admin/results',
-            controller: 'resultsCtrl',
-            templateUrl: 'admin/results.html',
-            controllerAs: 'vm',
+            // controller: 'resultsCtrl',
+            // templateUrl: 'admin/results.html',
+            // controllerAs: 'vm',
+            template: '<results all-sessions="$resolve.allSessions"></results>',
             resolve: {
                 admin: routeResolvers.requireAdmin,
                 allSessions: routeResolvers.allSessions
