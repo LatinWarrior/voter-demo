@@ -1,6 +1,6 @@
 angular
     .module('app')
-    .component('adminLoginCtrl', {
+    .component('adminLogin', {
         templateUrl: '/admin/adminLogin.html',
         bindings: {
             // No data is being fed in so no bindings are needed.
