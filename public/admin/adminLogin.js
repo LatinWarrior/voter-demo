@@ -1,6 +1,12 @@
 angular
     .module('app')
-    .controller('adminLoginCtrl', AdminLoginCtrl);
+    .component('adminLoginCtrl', {
+        templateUrl: '/admin/adminLogin.html',
+        bindings: {
+            // No data is being fed in so no bindings are needed.
+        },
+        controller: AdminLoginCtrl
+    });
 
 AdminLoginCtrl.$inject = ['$state', 'currentIdentity', 'auth'];
 
