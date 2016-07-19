@@ -88,9 +88,10 @@ app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', functio
         })
         .state('home', {
             url: '/',
-            controller: 'homeCtrl',
-            templateUrl: 'home/home.html',
-            controllerAs: 'vm',
+            //controller: 'homeCtrl',
+            //templateUrl: 'home/home.html',
+            //controllerAs: 'vm',
+            template: '<home user-sessions="$resolve.userSessions"></home>',
             resolve: {
                 login: routeResolvers.loggedIn,
                 userSessions: routeResolvers.userSessions
