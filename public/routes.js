@@ -1,4 +1,5 @@
-app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', function ($stateProvider, $urlRouterProvider, $locationProvider) {
+app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
+    function ($stateProvider, $urlRouterProvider, $locationProvider) {
 
     var routeResolvers = {
         loggedIn: function (auth) {
@@ -56,12 +57,10 @@ app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', functio
         })
         .state('user', {
             url: '/admin/users/:id',
-            params: {
-                id: null
-            },
-            controller: 'userDetailsCtrl',
-            templateUrl: 'admin/userDetails.html',
-            controllerAs: 'vm',
+            //controller: 'userDetailsCtrl',
+            //templateUrl: 'admin/userDetails.html',
+            //controllerAs: 'vm',
+            template: '<user-details all-users="$resolve.allUsers"></user-details>',
             resolve: {
                 admin: routeResolvers.requireAdmin,
                 allUsers: routeResolvers.allUsers
@@ -103,7 +102,7 @@ app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', functio
             templateUrl: 'profile/profile.html',
             controllerAs: 'vm',
             resolve: {
-                userProfile: routeResolvers.loggedIn,
+                userProfile: routeResolvers.loggedIn
             }
         })
         .state('createSession', {
@@ -112,7 +111,7 @@ app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', functio
             templateUrl: 'home/createNewSession.html',
             controllerAs: 'vm',
             resolve: {
-                userSessions: routeResolvers.userSessions,
+                userSessions: routeResolvers.userSessions
             }
         })
         .state('login', {

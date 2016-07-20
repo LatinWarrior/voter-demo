@@ -14,8 +14,8 @@ describe('userDetailsCtrlCtrl', function() {
       {
         allUsers: [{id:1,name:'wrong'},{id:3,name:'correct'}], 
         '$routeParams': {id:3}
-      })
+      });
       
     expect(ctrl.user.name).toBe('correct');
   })
-})
+});

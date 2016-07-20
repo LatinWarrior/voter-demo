@@ -15,7 +15,7 @@ angular
                     this.currentSessionToReview = response.data;
                 }.bind(this))
             };
-            
+
             this.setNextSessionToReview();
 
             this.voteYes = function () {

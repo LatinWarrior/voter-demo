@@ -24,7 +24,6 @@ angular.module('app').factory('auth', function($q, $http, currentIdentity) {
     
     waitForAuth: function() {
       var dfd = $q.defer();
-      debugger;
       $http.get('/api/currentIdentity').then(function(response) {
         if(!!response.data) {
           currentIdentity.setUser(response.data);

@@ -15,11 +15,11 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'bower_components/jquery/dist/jquery.min.js',
-      'bower_components/angular/angular.min.js',
-      'bower_components/angular-ui-router/release/angular-ui-router.min.js',
-      'bower_components/vendor/toastr.min.js',
-      'bower_components/toastr/toastr.js',
+      'public/vendor/jquery/dist/jquery.js',
+      'public/vendor/angular/angular.js',
+      'public/vendor/angular-ui-router/release/angular-ui-router.js',
+      'public/vendor/toastr.min.js',
+      //'public/toastr/toastr.js',
       'public/app.js',
       'public/**/*.js',
       'test/**/*.js',
@@ -29,7 +29,7 @@ module.exports = function(config) {
 
     // list of files to exclude
     exclude: [
-      'bower_components/angular/**/*.js'
+      'public/vendor/**/*.js'
     ],
 
 
@@ -80,4 +80,4 @@ module.exports = function(config) {
     // how many browser should be started simultaneous
     concurrency: Infinity
   })
-}
+};

@@ -5,7 +5,7 @@ angular.module('app').controller('userListCtrl',
     if(user1.firstName < user2.firstName) return -1;
     if(user1.firstName === user2.firstName) return 0;
     if(user1.firstName > user2.firstName) return 1;
-  })
+  });
   
   this.users = allUsers;
-})
+});

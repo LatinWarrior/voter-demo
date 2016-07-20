@@ -3,7 +3,7 @@
 describe('detailPanel', function() {
   
   var $compile,
-      $rootScope
+      $rootScope;
   
   beforeEach(module('app'));
   beforeEach(module('/components/detailPanel.html'));
@@ -11,7 +11,7 @@ describe('detailPanel', function() {
   beforeEach(inject(function(_$compile_, _$rootScope_) {
     $compile = _$compile_;
     $rootScope = _$rootScope_;
-  }))
+  }));
   
   it('should have the title in the html', function() {
     
@@ -20,4 +20,4 @@ describe('detailPanel', function() {
     
     expect(element.text()).toContain('This is the Title');
   })
-})
+});
